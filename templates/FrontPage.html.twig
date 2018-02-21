@@ -1,0 +1,12 @@
+{% extends 'Layout.html.twig' %}
+
+{% block content %}
+<a href="/submit">Submit</a>
+<ol>
+	{% for submission in submissions %}
+		<li>
+			<a href="{{ submission.url|e('html_attr') }}">{{ submission.title }}</a>
+		</li>
+	{% endfor %}
+</ol>
+{% endblock %}
