@@ -16,4 +16,24 @@ return [
 		'/submit',
 		'SocialNews\Submission\Presentation\SubmissionController#submit',
 	],
+    [
+        'GET',
+        '/register',
+        'SocialNews\User\Presentation\RegistrationController#show',
+    ],
+    [
+        'POST',
+        '/register',
+        'SocialNews\User\Presentation\RegistrationController#register',
+    ],
+    [
+        'GET',
+        '/login',
+        'SocialNews\User\Presentation\LoginController#show',
+    ],
+    [
+        'POST',
+        '/login',
+        'SocialNews\User\Presentation\LoginController#logIn',
+    ],
 ];

@@ -20,18 +20,27 @@ final class DbalSubmissionsQuery implements SubmissionsQuery
 	{
 		$qb = $this->connection->createQueryBuilder();
 
-		$qb->addSelect('title');
-		$qb->addSelect('url');
+		$qb->addSelect('submissions.title');
+		$qb->addSelect('submissions.url');
+		$qb->addSelect('authors.username');
 		$qb->from('submissions');
-		$qb->orderBy('created_at', 'DESC');
+		$qb->join(
+		    'submissions',
+            'users',
+            'authors',
+            'submissions.author_user_id = authors.id'
+        );
+		$qb->orderBy('submissions.created_at', 'DESC');
 
 		$stmt = $qb->execute();
 		$rows = $stmt->fetchAll();
 
 		$submissions = [];
+
 		foreach ($rows as $row) {
-			$submissions[] = new Submission($row['url'], $row['title']);
+			$submissions[] = new Submission($row['url'], $row['title'], $row['username']);
 		}
+
 		return $submissions;
 	}
 }

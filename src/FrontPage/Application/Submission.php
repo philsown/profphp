@@ -6,11 +6,13 @@ final class Submission
 {
 	private $url;
 	private $title;
+	private $author;
 
-	public function __construct(string $url, string $title)
+	public function __construct(string $url, string $title, string $author)
 	{
 		$this->url = $url;
 		$this->title = $title;
+		$this->author = $author;
 	}
 
 	public function getUrl(): string
@@ -22,4 +24,9 @@ final class Submission
 	{
 		return $this->title;
 	}
+
+	public function getAuthor(): string
+    {
+        return $this->author;
+    }
 }

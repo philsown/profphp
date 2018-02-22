@@ -31,7 +31,8 @@ final class Migration20180218055306
 	{
 		$table = $schema->createTable('submissions');
 		$table->addColumn('id', Type::GUID);
-		$table->addColumn('title', Type::STRING);
+        $table->addColumn('author_user_id', Type::GUID);
+        $table->addColumn('title', Type::STRING);
 		$table->addColumn('url', Type::STRING);
 		$table->addColumn('created_at', Type::DATETIME);
 	}
