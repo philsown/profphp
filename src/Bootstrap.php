@@ -25,7 +25,7 @@ $routeInfo = $dispatcher->dispatch(
 switch ($routeInfo[0]) {
 	case \FastRoute\Dispatcher::NOT_FOUND:
 		$response = new \Symfony\Component\HttpFoundation\Response(
-			'Not found boobs',
+			'Not found',
 			404
 		);
 		break;
